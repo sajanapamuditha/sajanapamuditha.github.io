@@ -60,6 +60,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-grad:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(108,99,255,.6)}
 .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
 .btn-outline:hover{border-color:var(--c1);color:var(--c1);transform:translateY(-3px)}
+.btn-cv{background:linear-gradient(135deg,#ffd700,#ff8c00);color:#0a0a0a;box-shadow:0 0 30px rgba(255,215,0,.3);font-weight:800}
+.btn-cv:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(255,215,0,.55)}
+.btn-cv-outline{background:transparent;color:var(--c4);border:2px solid rgba(255,215,0,.5)}
+.btn-cv-outline:hover{background:rgba(255,215,0,.08);border-color:var(--c4);transform:translateY(-3px)}
 
 /* PHOTO */
 .hero-right{display:flex;justify-content:center;align-items:center}
@@ -169,6 +173,32 @@ h2{font-size:clamp(28px,4vw,42px);font-weight:800;letter-spacing:-1px;margin-bot
 .contact-card h4{font-size:22px;font-weight:800;margin-bottom:10px}
 .contact-card p{color:var(--muted);font-size:13px;margin-bottom:28px}
 
+/* ── CV SECTION ── */
+.cv-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.cv-preview{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;transition:all .3s}
+.cv-preview::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad4)}
+.cv-preview:hover{border-color:rgba(255,215,0,.4);box-shadow:0 20px 60px rgba(255,215,0,.08);transform:translateY(-4px)}
+.cv-header{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.cv-avatar{width:56px;height:56px;border-radius:50%;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cv-name{font-weight:800;font-size:16px;letter-spacing:-.3px}
+.cv-role{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:1px}
+.cv-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.cv-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.06)}
+.cv-row-icon{font-size:15px;width:28px;text-align:center}
+.cv-row-text{font-size:12px;color:var(--muted)}
+.cv-row-text strong{color:var(--text);font-size:12px}
+.cv-dl-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;border-radius:10px;background:var(--grad4);color:#0a0a0a;font-weight:800;font-size:14px;text-decoration:none;transition:all .3s;box-shadow:0 4px 24px rgba(255,215,0,.25);cursor:pointer;border:none}
+.cv-dl-btn:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(255,215,0,.45)}
+.cv-dl-btn svg{width:18px;height:18px;flex-shrink:0}
+.cv-info-side{}
+.cv-info-side h3{font-size:28px;font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+.cv-info-side p{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:22px}
+.cv-features{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
+.cv-feat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.cv-feat span:first-child{font-size:16px}
+.cv-feat strong{color:var(--text)}
+.cv-btns-row{display:flex;gap:12px;flex-wrap:wrap}
+
 footer{position:relative;z-index:1;text-align:center;padding:28px 60px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted)}
 footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
 
@@ -182,9 +212,10 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
   .hero-right{order:-1}.hero-eyebrow{justify-content:center}.hero-chips{justify-content:center}.hero-btns{justify-content:center}
   .hero-desc{margin:0 auto 32px}
   section{padding:60px 20px}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-grid,.contact-grid,.cv-section-inner{grid-template-columns:1fr}
   .lead-grid{grid-template-columns:1fr 1fr}
   .photo-wrap{width:260px;height:260px}
+  .cv-info-side{order:1}.cv-preview{order:2}
 }
 @media(max-width:600px){
   .nav-links{display:none}
@@ -201,6 +232,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
   <div class="nav-links">
     <a href="#about">About</a><a href="#skills">Skills</a>
     <a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    <a href="Sajana_Pamuditha_CV.pdf" download="Sajana_Pamuditha_CV.pdf" style="color:var(--c4);border:1px solid rgba(255,215,0,.4);padding:5px 14px;border-radius:6px;background:rgba(255,215,0,.06);letter-spacing:.5px;transition:all .2s" onmouseover="this.style.background='rgba(255,215,0,.15)'" onmouseout="this.style.background='rgba(255,215,0,.06)'">⬇ CV</a>
   </div>
 </nav>
 
@@ -227,6 +259,7 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
     </div>
     <div class="hero-btns">
       <a href="https://github.com/sajanapamuditha" target="_blank" class="btn btn-grad">GitHub Profile →</a>
+      <a href="Sajana_Pamuditha_CV.pdf" download="Sajana_Pamuditha_CV.pdf" class="btn btn-cv">⬇ Download CV</a>
       <a href="https://www.linkedin.com/in/sajana-pamuditha-901117391/" target="_blank" class="btn btn-outline">LinkedIn</a>
       <a href="mailto:kumaragesajana@gmail.com" class="btn btn-outline">✉️ Email</a>
     </div>
@@ -501,7 +534,8 @@ footer span{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fi
       <div style="font-size:60px;margin-bottom:16px">👨‍💻</div>
       <h4>Open to Opportunities</h4>
       <p>Available for IT internships immediately. Based in Colombo, Sri Lanka — open to remote or on-site roles.</p>
-      <a href="https://github.com/sajanapamuditha" target="_blank" class="btn btn-grad" style="display:inline-flex">View GitHub →</a>
+      <a href="https://github.com/sajanapamuditha" target="_blank" class="btn btn-grad" style="display:inline-flex;margin-bottom:10px">View GitHub →</a>
+      <a href="Sajana_Pamuditha_CV.pdf" download="Sajana_Pamuditha_CV.pdf" class="btn btn-cv" style="display:inline-flex">⬇ Download CV</a>
     </div>
   </div>
 </section>
